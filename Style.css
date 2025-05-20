@@ -231,3 +231,10 @@ footer .footer-note {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+.mini-video {
+  width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  border: 1px solid #00ffff40;
+  background-color: #000;
+}
