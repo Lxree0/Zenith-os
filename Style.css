@@ -274,3 +274,7 @@ code{
   color: #ffffff;
   transition: all 0.3s ease;
 }
+strong{
+  font-weight: 900;
+  color: #ffffff;
+}
