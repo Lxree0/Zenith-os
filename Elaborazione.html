@@ -1,63 +1,103 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <title>ZENITH OS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="Style.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
   </style>
 </head>
+
 <body>
 
 
   <nav class="navbar">
-  <div class="logo">ZENITH</div>
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="HomePage.html">Home</a></li>
-    <li><a href="Whoarewe.html">chi siamo?</a></li>
-    <li><a href="ZenithOS.html">Il nostro Sistema operativo</a></li>
-    <li><a href="Thread.html">Gestione thread</a></li>
-    <li><a href="#">cose sulla programmazione parallela</a></li>
-  </ul>
+    <div class="logo">ZENITH</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="HomePage.html">Home</a></li>
+      <li><a href="Whoarewe.html">chi siamo?</a></li>
+      <li><a href="ZenithOS.html">Il nostro Sistema operativo</a></li>
+      <li><a href="Thread.html">Gestione thread</a></li>
+      <li><a href="#">cose sulla programmazione parallela</a></li>
+    </ul>
   </nav>
 
   <div style="display: flex;flex-direction: column; align-items: center; margin-top: 10%;gap: 5%;">
     <h1>Elaborazione sequenziale e concorrente</h1>
-    <p class="fancy-paragraph">Ovviamente il nostro sistema operativo implementa l'elaborazione concorrente ma andiamo ad osservare  nel dettaglio il loro funzionamento.
+    <p class="fancy-paragraph">Ovviamente il nostro sistema operativo implementa l'elaborazione concorrente ma andiamo
+      ad osservare nel dettaglio il loro funzionamento.
     </p>
 
     <h1>Elaborazione sequenziale</h1>
-    <p class="fancy-paragraph">Con elaborazione sequenziale s'intende l'esecuzione di un programma che genera un processo sequenziale con un ordinamento totale delle azioni che vengono eseguite.
-        Essa, è un concetto fondamentale dell'informatica in quantoi gli algoritmi che vengono da noi sviluppati sono composti da una sequenza finita di istruzioni.
+    <p class="fancy-paragraph">Con elaborazione sequenziale s'intende l'esecuzione di un programma che genera un
+      processo sequenziale con un ordinamento totale delle azioni che vengono eseguite.
+      Essa, è un concetto fondamentale dell'informatica in quantoi gli algoritmi che vengono da noi sviluppati sono
+      composti da una sequenza finita di istruzioni.
     </p>
 
-    <p class="fancy-paragraph">Esistono tuttavia, programmi che per la loro corretta esecuzione necessitano di elaborazioni parallele come ad esempoi il multiplayer all'interno di un videogioco.
-        in questo caso l'elaborazione sequenziale non è sufficiente, per questo introduciamo adesso... 
+    <p class="fancy-paragraph">Esistono tuttavia, programmi che per la loro corretta esecuzione necessitano di
+      elaborazioni parallele come ad esempoi il multiplayer all'interno di un videogioco.
+      in questo caso l'elaborazione sequenziale non è sufficiente, per questo introduciamo adesso...
     </p>
 
     <h1>La programmazione concorrente</h1>
-    <p class="fancy-paragraph">Con programmazione concorrente intendiamo le tecniche 
-        e gli strumenti utilizzati per descrivere il comportamento di più processi 
-        che vengono eseguiti nello stesso momento sulla stessa macchina.
-        Tuttavia questo tipo di elaborazione concorrente si verifica solo se la macchina
-        sia dotata di un' architettura multiprocessore. <br>
-        In caso contrario, avviene un parallelismo "virtualizzato" grazie alla multiprogrammazione.
+    <p class="fancy-paragraph">Con programmazione concorrente intendiamo le tecniche
+      e gli strumenti utilizzati per descrivere il comportamento di più processi
+      che vengono eseguiti nello stesso momento sulla stessa macchina.
+      Tuttavia questo tipo di elaborazione concorrente si verifica solo se la macchina
+      sia dotata di un' architettura multiprocessore. <br>
+      In caso contrario, avviene un parallelismo "virtualizzato" grazie alla multiprogrammazione.
     </p>
     <h1>Cosa succede in un sistema multiprogrammato?</h1>
-    <p class="fancy-paragraph">In un sistema multiprogrammato i programmi utente e le singole 
-        funzioni svolte dall'os sono considerati processi che concorrono alle stesse risorse.</p>
+    <p class="fancy-paragraph">In un sistema multiprogrammato i programmi utente e le singole
+      funzioni svolte dall'os sono considerati processi che concorrono alle stesse risorse.</p>
 
     <h1>Cos'è quindi un sistema concorrente?</h1>
     <p class="fancy-paragraph">Un sistema concorrente è un sistema che gestisce
-        contemporaneamente un insieme di attività diverse che, 
-        cooperano oppure concorrono per l'uso della stessa risorsa.</p>
+      contemporaneamente un insieme di attività diverse che,
+      cooperano oppure concorrono per l'uso della stessa risorsa.</p>
 
-        
-</div>
+    <h1>Grafo delle Precedenze</h1>
+    <p class="fancy-paragraph">Un grafo delle precedenze è un diagramma che rappresenta l’ordine delle attività in un
+      progetto, mostrando quali attività devono essere completate prima di altre. <br>
+      Prendiamo d'esempio l'espressione matematica <br>
+      [(4 + 2) - (10 \ 2)]^2 * [(8-2) / (4+2)].
+    </p>
+
+      <img src="GrafoDellePrecedenze.png" alt="GrafoDellePrecedenze" style="width: 50%;">
+      <p class="fancy-paragraph">
+        Lo pseudo-codice che descrive questo grafico è il seguente:
+      </p>
+
+      <pre><code>
+      cobegin
+        cobegin
+          <strong>A</strong>: 4 + 2
+          <strong>B</strong>: 10 / 2
+        coend
+        <strong>E</strong>: A - B
+        <strong>E²</strong>: E ^ 2
+      coend
+
+      cobegin
+        cobegin
+          <strong>C</strong>: 8 - 2
+          <strong>D</strong>: 4 + 2
+        coend
+        <strong>F</strong>: C / D
+      coend
+
+      <strong>Risultato</strong>: E² * F
+      </code></pre>
+
+    
+
+  </div>
