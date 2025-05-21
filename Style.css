@@ -31,13 +31,14 @@
       filter: drop-shadow(0 0 10px #00ffff);
     }
 
-    h1{
+    h1,h2{
       text-align: center;
       font-size: 3rem;
       color: #00ffff;
       margin-top: 20px;
       animation: slideInDown 1.5s ease-in-out;
     }
+    
 
     .tagline {
       text-align: center;
